@@ -23,7 +23,21 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 
 ---
 
-## Setup the Environment
+### File explanations in repository:
+
+* `.circleci/config.yml`: Config file used by Circle CI to lint project files
+* `model_data/*`: model files for pre-trained microservice
+* `output_txt_files/*`: console logs of successful Docker and Kubernetes tasks
+* `app.py`: microservice application, running Flask
+* `Dockerfile`: outlines the steps required to run a Docker image in a container
+* `make_prediction.sh`: script used to obtain prediction outputs from the microservice across various deployment environments
+* `Makefile`: used to prepare local Python environment/linting
+* `requirements.txt`: used for package installation
+* `run_docker.sh`: creates a Docker image locally
+* `run_kubernetes.sh`: downloads the proper tagged image from Docker Hub and runs it locally on a port specified by port-forwarding
+* `upload_docker.sh`: uploads the specified Docker image to Docker Hub for Kubernetes to later use
+
+### Setup the Environment
 
 * Create a virtualenv and activate it
 * Run `make install` to install the necessary dependencies
@@ -34,9 +48,20 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 2. Run in Docker:  `./run_docker.sh`
 3. Run in Kubernetes:  `./run_kubernetes.sh`
 
+### Upload to Docker Hub
+
+* `upload_docker.sh` contains the script to Docker Hub, simply update the username to use.
+* note: winpty served as a wrapper to Docker due to my machine being Windows, and is needed as a workaround to the known Docker issue in Git Bash. Remove winpty from the script if not using Windows.
+* `./upload_docker` 
+
 ### Kubernetes Steps
 
 * Setup and Configure Docker locally
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
+
+### Ensure Kubernetes Clean Up
+
+* kubectl delete (minikube delete) to completely delete the kubernetes cluster
+* kubectl stop (minikube stop) to pause and save cluster state
