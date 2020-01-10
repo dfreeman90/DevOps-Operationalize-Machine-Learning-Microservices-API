@@ -1,5 +1,3 @@
-<paste log output from Docker prediction, here>
-
 [2020-01-10 19:03:33,193] INFO in app: JSON payload:
 {'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.                                3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
 [2020-01-10 19:03:33,205] INFO in app: Inference payload DataFrame:
